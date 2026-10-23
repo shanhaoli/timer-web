@@ -3,7 +3,9 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
+  // GitHub Pages 项目站点部署在子路径下，通过 BASE_PATH 环境变量注入
+  base: process.env.BASE_PATH || '/',
   plugins: [
     react(),
     VitePWA({
@@ -13,12 +15,12 @@ export default defineConfig({
         name: '工时块',
         short_name: '工时块',
         description: '分段计时提醒起身，记录每段时间的工作与进展',
-        start_url: '/',
+        start_url: '.',
         display: 'standalone',
         background_color: '#faf9f7',
         theme_color: '#faf9f7',
         lang: 'zh-CN',
-        icons: [{ src: '/favicon.svg', sizes: 'any', type: 'image/svg+xml' }],
+        icons: [{ src: 'favicon.svg', sizes: 'any', type: 'image/svg+xml' }],
       },
     }),
   ],
@@ -28,4 +30,4 @@ export default defineConfig({
     setupFiles: ['./tests/setup.ts'],
     include: ['tests/**/*.test.{ts,tsx}'],
   },
-})
+}))
