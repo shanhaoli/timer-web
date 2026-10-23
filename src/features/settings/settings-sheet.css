@@ -1,0 +1,97 @@
+.settings-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  background: oklch(20% 0.02 60 / 0.4);
+  z-index: 20;
+  animation: summary-fade var(--duration-normal) var(--ease-out-expo);
+}
+
+.settings-sheet {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  width: min(28rem, 100%);
+  padding: var(--space-8);
+  background: var(--color-surface-raised);
+  border-radius: var(--radius-lg);
+  animation: log-form-in var(--duration-normal) var(--ease-out-expo);
+}
+
+.settings-title {
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+
+.settings-group {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.settings-label {
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+  letter-spacing: 0.1em;
+}
+
+.settings-presets {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.settings-preset {
+  min-width: 3.25rem;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-secondary);
+  transition: border-color var(--duration-fast) linear, color var(--duration-fast) linear,
+    background var(--duration-fast) linear;
+}
+
+.settings-preset:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent-strong);
+}
+
+.settings-preset-active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: oklch(99% 0 0);
+}
+
+.settings-preset-active:hover {
+  color: oklch(99% 0 0);
+}
+
+.settings-custom {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.settings-custom input {
+  width: 6rem;
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-variant-numeric: tabular-nums;
+}
+
+.settings-custom input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.settings-unit {
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+}
